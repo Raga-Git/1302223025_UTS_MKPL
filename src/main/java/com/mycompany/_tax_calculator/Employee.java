@@ -14,10 +14,7 @@ import java.util.List;
  */
 public class Employee {
     private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
-	private String address;
+	private Identity identity;
 	
         private LocalDate joinDate;
 	
@@ -34,12 +31,9 @@ public class Employee {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, LocalDate joinDate, boolean isForeigner, Gender gender) {
+	public Employee(String employeeId, Identity identity, LocalDate joinDate, boolean isForeigner, Gender gender) {
 		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
-		this.address = address;
+		this.identity = identity;
 		this.joinDate = joinDate;
 		this.isForeigner = isForeigner;
 		this.gender = gender;

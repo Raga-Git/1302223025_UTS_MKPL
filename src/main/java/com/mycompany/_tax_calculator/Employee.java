@@ -25,8 +25,7 @@ public class Employee {
 	private int otherMonthlyIncome;
 	private int annualDeductible;
 	
-	private String spouseName;
-	private String spouseIdNumber;
+	private Spouse spouse;
 
 	private List<String> childNames;
 	private List<String> childIdNumbers;
@@ -74,10 +73,9 @@ public class Employee {
 		this.otherMonthlyIncome = income;
 	}
 	
-	public void setSpouse(String spouseName, String spouseIdNumber) {
-		this.spouseName = spouseName;
-		this.spouseIdNumber = idNumber;
-	}
+	public void setSpouse(Spouse spouse) {
+ 		this.spouse = spouse;
+ 	}
 	
 	public void addChild(String childName, String childIdNumber) {
 		childNames.add(childName);

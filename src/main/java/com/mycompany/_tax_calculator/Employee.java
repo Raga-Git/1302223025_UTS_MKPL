@@ -21,9 +21,7 @@ public class Employee {
 	private boolean isForeigner;
 	private Gender gender;
 	
-	private int monthlySalary;
-	private int otherMonthlyIncome;
-	private int annualDeductible;
+	private IncomeDetails incomeDetails;
 	
 	private Spouse spouse;
 
@@ -64,11 +62,7 @@ public class Employee {
 	}
 	
 	public void setAnnualDeductible(int deductible) {	
-		this.annualDeductible = deductible;
-	}
-	
-	public void setAdditionalIncome(int income) {	
-		this.otherMonthlyIncome = income;
+		incomeDetails.setAnnualDeductible(deductible);
 	}
 	
 	public void setSpouse(Spouse spouse) {

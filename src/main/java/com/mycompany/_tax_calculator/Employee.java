@@ -20,7 +20,6 @@ public class Employee {
 	private String address;
 	
         private LocalDate joinDate;
-	private int monthWorkingInYear;
 	
 	private boolean isForeigner;
 	private Gender gender;
@@ -95,6 +94,7 @@ public class Employee {
 		
 		//Menghitung berapa lama pegawai bekerja dalam setahun ini, jika pegawai sudah bekerja dari tahun sebelumnya maka otomatis dianggap 12 bulan.
 		LocalDate date = LocalDate.now();
+                int monthWorkingInYear;
 		
 		if (date.getYear() == joinDate.getYear()) {
  			monthWorkingInYear = date.getMonthValue() - joinDate.getMonthValue();

@@ -31,21 +31,23 @@ public class TaxFunction {
     private static final int MAX_CHILDREN = 3;
     private static final double TAX_RATE = 0.05;
 
-    public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-        validateNumberOfMonth(numberOfMonthWorking);
-
+    public static int calculateTax(IncomeDetails incomeDetails, int monthsWorked, boolean isMarried, int numberOfChildren) {
+        validateNumberOfMonth(monthsWorked);
         numberOfChildren = Math.min(numberOfChildren, MAX_CHILDREN);
 
-        int grossIncome = calculateGrossIncome(monthlySalary, otherMonthlyIncome, numberOfMonthWorking);
+        int grossIncome = calculateGrossIncome(
+            incomeDetails.getMonthlySalary(),
+            incomeDetails.getOtherMonthlyIncome(),
+            monthsWorked
+        );
+
         int nonTaxable = calculateNonTaxableIncome(isMarried, numberOfChildren);
-
-        int taxableIncome = grossIncome - deductible - nonTaxable;
-
+        int taxableIncome = grossIncome - incomeDetails.getAnnualDeductible() - nonTaxable;
         return (int) Math.round(TAX_RATE * Math.max(taxableIncome, 0));
     }
 
-    private static void validateNumberOfMonth(int numberOfMonthWorking) {
-        if (numberOfMonthWorking > 12) {
+    private static void validateNumberOfMonth(int months) {
+        if (months > 12) {
             throw new IllegalArgumentException("More than 12 months working per year");
         }
     }
